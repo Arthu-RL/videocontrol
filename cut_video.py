@@ -47,7 +47,7 @@ resized_video = resize(video, newsize=new_resolution)
 cut_video = resized_video.subclip(start_time, end_time)
 
 # Save the new cut video
-cut_video.write_videofile(os.path.join(args.outdir, f"subclip_{filename}.mp4"), codec="libx264", audio_codec="aac")
+cut_video.write_videofile(os.path.join(args.outdir, f"subclip_{filename}"), codec="libx264", audio_codec="aac")
 
 # Close the video file to release resources
 video.close()
