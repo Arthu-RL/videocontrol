@@ -13,7 +13,7 @@ python3 cut_video.py \
     --end-time=2
 """
 
-logging.basicConfig('cut_video', format='%(levelname)s: %(message)s', level=logging.DEBUG)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--video-path', dest="video_path", type=str)

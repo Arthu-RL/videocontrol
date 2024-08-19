@@ -11,7 +11,7 @@ python3 concat_videos.py \
     --videos-path="./combine/subclip_4288_video_depth.mp4"
 """
 
-logging.basicConfig('concat_videos', format='%(levelname)s: %(message)s', level=logging.DEBUG)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--videof-path', dest="videof_path", type=str, required=True)
@@ -20,7 +20,7 @@ parser.add_argument('--outdir', type=str, default='./outputs')
 
 args = parser.parse_args()
 
-margin_width = 50
+margin_width = 40
 
 videof_path = args.videof_path
 if not (os.path.exists(videof_path)):
