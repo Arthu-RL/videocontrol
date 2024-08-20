@@ -7,8 +7,8 @@ import logging
 
 """
 python3 concat_videos.py \
-    --videof-path="./combine/subclip_4288_depth_clipFrame2_wsNone.mp4" \
-    --videos-path="./combine/subclip_4288_video_depth.mp4"
+    --videof-path="./subclip_IMG_4288_chrono_depth_clipFrame2_wsNone.mp4" \
+    --videos-path="./subclip_IMG_4288_video_depth_anything.mp4"
 """
 
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
@@ -45,8 +45,10 @@ output_width = frame_width * 2 + margin_width
 logging.info(f"Resolution: {frame_width} x {frame_height} - Output Width: {output_width}")
 logging.info(f"FPS: {frame_rate}")
 
-filename = os.path.basename(videof_path)
-output_filename = filename.replace(".mp4", "_video_depth_combined.mp4")
+filenamef = os.path.basename(videof_path)
+filenames = os.path.basename(videos_path)
+combined_filename = filenamef.replace(".mp4", "_X_"+filenames)
+output_filename = combined_filename.replace(".mp4", "_video_depth_combined.mp4")
 output_path = os.path.join(args.outdir, output_filename)
 out = cv2.VideoWriter(filename=output_path, fourcc=cv2.VideoWriter_fourcc(*"mp4v"), fps=frame_rate, frameSize=(output_width, frame_height))
 
