@@ -1,5 +1,5 @@
 import cv2
-import numpy as np
+import math
 import argparse
 import os
 import logging
@@ -30,8 +30,8 @@ logging.info(f"Video capture:")
 logging.info(f"width: {width}, height: {height}, fps: {fps}, total_frames: {total_frames}")
 
 
-resized_width: int = int(width * args.scale_resolution)
-resized_height: int = int(height * args.scale_resolution)
+resized_width: int = math.ceil(width * args.scale_resolution)
+resized_height: int = math.ceil(height * args.scale_resolution)
 resized_fps: float = args.fps
 
 logging.info(f"Video output:")
