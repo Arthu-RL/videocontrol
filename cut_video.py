@@ -5,14 +5,6 @@ import logging
 import os
 import sys
 
-"""
-python3 cut_video.py \
-    --video-path="assets/IMG_4288.mp4" \
-    --outdir="./outputs" \
-    --start-time=1 \
-    --end-time=2
-"""
-
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
 
 parser = argparse.ArgumentParser()
