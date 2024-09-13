@@ -39,16 +39,21 @@ logging.info(f"resized_width: {resized_width}, resized_height: {resized_height},
 
 
 filename: str = os.path.basename(args.video_path)
-extension: str = "."+os.path.splitext(filename)[1]
-output_file: str = filename.replace(extension, "_down_sized"+extension)
-output_file = os.path.join(args.outdir, output_file)
+filename_extension: str = os.path.splitext(filename)
+filename = filename_extension[0]
+extension: str = filename_extension[1]
+output_path = os.path.join(args.outdir, f"{filename}_down_sized{extension}")
+
+logging.debug("Extra info:")
+logging.debug(f"filename: {filename}, extension: {extension}")
+logging.debug(f"Output file path: {output_path}")
 
 fourcc: int = cv2.VideoWriter.fourcc(*"mp4v")
 
-writer: cv2.VideoWriter = cv2.VideoWriter(output_file, cv2.CAP_ANY, fourcc, resized_fps, (resized_width, resized_height))
+writer: cv2.VideoWriter = cv2.VideoWriter(output_path, cv2.CAP_ANY, fourcc, resized_fps, (resized_width, resized_height))
 
 if not writer.isOpened():
-    logging.error(f"Error: Unable to open the video writer for output file {output_file}")
+    logging.error(f"Error: Unable to open the video writer for output file {output_path}")
     cap.release()
     exit(1)
 
@@ -76,4 +81,4 @@ writer.release()
 
 progress_bar.close()
 
-logging.info(f"Video saved at: {output_file}")
+logging.info(f"Video saved at: {output_path}")

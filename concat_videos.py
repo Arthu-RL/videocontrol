@@ -42,7 +42,7 @@ logging.info(f"FPS: {frame_rate}")
 
 filenamef = os.path.basename(videof_path)
 filenames = os.path.basename(videos_path)
-extension: str = "."+os.path.splitext(filenamef)[1]
+extension: str = os.path.splitext(filenamef)[1]
 
 combined_filename = filenamef.replace(extension, "_X_"+filenames)
 output_filename = combined_filename.replace(extension, "_video_combined"+extension)
